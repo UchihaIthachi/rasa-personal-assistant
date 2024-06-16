@@ -1,0 +1,26 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_information\"}}]": "action_provide_information",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_information\"}}, {\"prev_action\": {\"action_name\": \"action_provide_information\"}, \"user\": {\"intent\": \"request_information\"}}]": "utter_request_information",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_information\"}}, {\"prev_action\": {\"action_name\": \"action_provide_information\"}, \"user\": {\"intent\": \"request_information\"}}, {\"prev_action\": {\"action_name\": \"utter_request_information\"}, \"user\": {\"intent\": \"request_information\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"cancel_booking\"}}]": "action_cancel_booking",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"cancel_booking\"}}, {\"prev_action\": {\"action_name\": \"action_cancel_booking\"}, \"user\": {\"intent\": \"cancel_booking\"}}]": "utter_cancel_booking",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"cancel_booking\"}}, {\"prev_action\": {\"action_name\": \"action_cancel_booking\"}, \"user\": {\"intent\": \"cancel_booking\"}}, {\"prev_action\": {\"action_name\": \"utter_cancel_booking\"}, \"user\": {\"intent\": \"cancel_booking\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}]": "action_make_reservation",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}, {\"prev_action\": {\"action_name\": \"action_make_reservation\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}]": "utter_confirm_reservation",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}, {\"prev_action\": {\"action_name\": \"action_make_reservation\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}, {\"prev_action\": {\"action_name\": \"utter_confirm_reservation\"}, \"user\": {\"intent\": \"restaurant_reservation\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"room_service\"}}]": "action_room_service",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"room_service\"}}, {\"prev_action\": {\"action_name\": \"action_room_service\"}, \"user\": {\"intent\": \"room_service\"}}]": "utter_room_service",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"room_service\"}}, {\"prev_action\": {\"action_name\": \"action_room_service\"}, \"user\": {\"intent\": \"room_service\"}}, {\"prev_action\": {\"action_name\": \"utter_room_service\"}, \"user\": {\"intent\": \"room_service\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

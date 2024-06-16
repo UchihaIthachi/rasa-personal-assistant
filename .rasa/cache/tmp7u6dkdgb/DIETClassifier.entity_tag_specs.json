@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-check_in_date",
+      "2": "I-check_in_date",
+      "3": "L-check_in_date",
+      "4": "U-check_in_date",
+      "5": "B-check_out_date",
+      "6": "I-check_out_date",
+      "7": "L-check_out_date",
+      "8": "U-check_out_date",
+      "9": "B-reservation_date",
+      "10": "I-reservation_date",
+      "11": "L-reservation_date",
+      "12": "U-reservation_date",
+      "13": "B-reservation_time",
+      "14": "I-reservation_time",
+      "15": "L-reservation_time",
+      "16": "U-reservation_time",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-check_in_date": 1,
+      "I-check_in_date": 2,
+      "L-check_in_date": 3,
+      "U-check_in_date": 4,
+      "B-check_out_date": 5,
+      "I-check_out_date": 6,
+      "L-check_out_date": 7,
+      "U-check_out_date": 8,
+      "B-reservation_date": 9,
+      "I-reservation_date": 10,
+      "L-reservation_date": 11,
+      "U-reservation_date": 12,
+      "B-reservation_time": 13,
+      "I-reservation_time": 14,
+      "L-reservation_time": 15,
+      "U-reservation_time": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

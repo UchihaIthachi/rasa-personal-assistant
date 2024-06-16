@@ -1,0 +1,27 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Handle room booking
+    steps:
+      - intent: book_room
+      - action: utter_book_room
+
+  - rule: Handle reservation cancellation
+    steps:
+      - intent: cancel_reservation
+      - action: utter_cancel_reservation

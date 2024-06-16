@@ -1,0 +1,326 @@
+version: "3.1"
+
+stories:
+  - story: Respond to bot challenge
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - story: User books a room
+    steps:
+      - intent: book_room
+      - action: utter_book_room
+      - intent: affirm
+  #      - action: action_book_room_confirmation
+
+  - story: User denies booking a room
+    steps:
+      - intent: book_room
+      - action: utter_book_room
+      - intent: deny
+  #      - action: action_listen
+
+  - story: User is unhappy with the room service
+    steps:
+      - intent: book_room
+      - action: utter_book_room
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+
+  - story: User expresses great mood after successful booking
+    steps:
+      - intent: book_room
+      - action: utter_book_room
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: faqbreakfastmenu
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqbreakfast
+      - action: utter_faqbreakfast
+
+  - story: cancellationplicyfaq
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqcancellationpolicy
+      - action: utter_faqcancellationpolicy
+
+  - story: faqcheckin
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqcheckin
+      - action: utter_faqcheckintime
+
+  - story: faqcheckouttime
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqcheckout
+      - action: utter_checkout
+
+  - story: faqchildrenage
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqchildrenage
+      - action: utter_faqchildrenage
+
+  - story: faqearlycheckin
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqearlycheckin
+      - action: utter_faqearlycheckin
+
+  - story: faqlatecheckin
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqlatecheckin
+      - action: utter_latecheckin
+
+  - story: faqlatecheckout
+    steps:
+      - intent: faqlatecheckout
+      - action: utter_faqlatecheckout
+
+  - story: faqroomcountdetails
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqroomcount
+      - action: utter_faqroomcount
+
+  - story: babycotfaq
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqbabycot
+      - action: utter_faqbabycot
+
+  - story: breakfasttime
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqbreakfasttime
+      - action: utter_faqbreakfasttime
+
+  - story: refundpolicy
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqrefundable
+      - action: utter_faqrefundable
+
+  - story: receptiontime
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqreceptiontime
+      - action: utter_receptiontime
+
+  - story: carparking
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqparking
+      - action: utter_faqcarparking
+
+  - story: parkingcost
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqparkingcost
+      - action: utter_faqparkingcost
+
+  - story: faqpartialcancel
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqpartialcancel
+      - action: utter_faqpartialcancel
+
+  - story: petpolicyfaq
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqpetpolicy
+      - action: utter_faqpetpolicy
+
+  - story: reservationconfirm
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqreservaconfirm
+      - action: utter_reservationconfirm
+
+  - story: nearestairportfaq
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqnearestairport
+      - action: utter_faqnearestairport
+
+  - story: modifyreservation
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqmodifyreservation
+      - action: utter_faqmodifyreservation
+
+  - story: meetingroom
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqmeetingroom
+      - action: utter_faqmeetingroom
+
+  - story: security
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqsecurity
+      - action: utter_faqsecurity
+
+  - story: luggahes
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqluggage
+      - action: utter_faqluggage
+
+  - story: contactnumber
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: faq
+      - action: utter_faq_prompt
+      - intent: faqcontactnumber
+      - action: utter_faqcontactnumber
+
+  - story: FAQ about checkout time
+    steps:
+      - intent: faqcheckout
+      - action: utter_faqcheckout
+
+  - story: User asks to check room availability
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: check_availability
+      - action: utter_check_availability
+
+  - story: User denies booking and requests cancellation
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: deny
+      - action: utter_did_that_help
+      - intent: cancel_reservation
+      - action: utter_cancel_reservation
+
+  - story: User expresses great mood after successful booking
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: book_room
+      - action: utter_book_room
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: User is unhappy with the room service
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: book_room
+      - action: utter_book_room
+      - intent: mood_unhappy
+      - action: utter_did_that_help
+
+  - story: Check availability
+    steps:
+      - intent: check_availability
+      - action: utter_check_availability
+
+  - story: User is unhappy
+    steps:
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+
+  - story: User is happy
+    steps:
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: FAQ Check-in time
+    steps:
+      - intent: faqcheckin
+      - action: utter_faqcheckin
+
+  - story: FAQ about check-in age
+    steps:
+      - intent: faqcheckinage
+      - action: utter_faqcheckinage
+
+  - story: FAQ Reception time
+    steps:
+      - intent: faqreceptiontime
+      - action: utter_faqreceptiontime
+
+  - story: FAQ Parking
+    steps:
+      - intent: faqparking
+      - action: utter_faqparking
+
+  - story: FAQ Late check-in
+    steps:
+      - intent: faqlatecheckin
+      - action: utter_faqlatecheckin

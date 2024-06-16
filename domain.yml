@@ -1,0 +1,219 @@
+version: "3.1"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+  - greet
+  - deny
+  - mood_unhappy
+  - mood_great
+  - affirm
+  - check_availability
+  - goodbye
+  - bot_challenge
+  - cancel_reservation
+  - book_room
+  - faq
+  - faqbreakfast
+  - faqcancellationpolicy
+  - faqcheckin
+  - faqcheckinage
+  - faqcheckout
+  - faqchildrenage
+  - faqearlycheckin
+  - faqlatecheckin
+  - faqlatecheckout
+  - faqroomcount
+  - faqbabycot
+  - faqbreakfasttime
+  - faqrefundable
+  - faqreceptiontime
+  - faqparking
+  - faqparkingcost
+  - faqpartialcancel
+  - faqpetpolicy
+  - faqreservaconfirm
+  - faqnearestairport
+  - faqmodifyreservation
+  - faqmeetingroom
+  - faqsecurity
+  - faqluggage
+  - faqcontactnumber
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+    - text: "Hello! How can I help you today?"
+    - text: "Hey! How are you doing today?"
+    - text: "Hi there! How can I assist you?"
+    - text: "Greetings! What can I do for you today?"
+    - text: "Hello! Need any help with your stay?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here's a little something to brighten your day:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Hope this cheers you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+    - text: "Was that helpful?"
+    - text: "Did you find that useful?"
+    - text: "Did that solve your problem?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+    - text: "Awesome, keep going!"
+    - text: "Fantastic, have a great day!"
+    - text: "Wonderful, enjoy your day!"
+
+  utter_goodbye:
+    - text: "Bye! Have a great day!"
+    - text: "Goodbye! Take care!"
+    - text: "See you later! Have a nice day!"
+    - text: "Bye! Hope to see you again soon!"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+    - text: "I am an automated assistant, here to help you."
+    - text: "I'm a virtual assistant created by Rasa."
+    - text: "I'm a chatbot, designed to assist you."
+
+  utter_book_room:
+    - text: "Sure, I can help you with booking a room. How many nights will you be staying?"
+    - text: "I'd be happy to assist with your room booking. How long will you be staying?"
+    - text: "Of course, I can book a room for you. How many nights do you need?"
+    - text: "Let's get your room booked. How many nights are you planning to stay?"
+
+  utter_cancel_reservation:
+    - text: "I can help you cancel your reservation. Can you please provide your booking reference number?"
+    - text: "Sure, I can cancel your reservation. May I have your booking reference number?"
+    - text: "No problem, let's cancel your booking. What's your reservation reference number?"
+    - text: "I can take care of that. Could you give me your booking reference number?"
+
+  utter_check_availability:
+    - text: "Let me check the availability for you. What dates are you looking at?"
+    - text: "I can check the room availability for you. Please provide the dates of your stay."
+    - text: "Sure, I can help you with that. Could you tell me the dates you're interested in?"
+
+  utter_faqbreakfast:
+    - text: "Our breakfast menu includes a variety of options. Would you like to know more specifics?"
+    - text: "We offer a delicious breakfast menu. What would you like to know?"
+    - text: "Our breakfast menu has many choices. Do you have any specific preferences?"
+
+  utter_faqcancellationpolicy:
+    - text: "Our cancellation policy allows you to cancel up to 24 hours before your arrival date without any charge."
+    - text: "You can cancel your reservation free of charge if done 24 hours prior to arrival. After that, a fee may apply."
+    - text: "The cancellation policy varies depending on your booking. Generally, cancellations 24 hours before arrival are free."
+
+  utter_faqcheckin:
+    - text: "Our standard check-in time is from 2 PM onwards."
+    - text: "You can check in anytime after 2 PM."
+    - text: "Check-in is available from 2 PM. Please let us know if you need an earlier time."
+
+  utter_faqcheckinage:
+    - text: "The minimum age required to check in is 18 years."
+    - text: "Guests must be at least 18 years old to check in."
+    - text: "You need to be 18 years or older to check in at our hotel."
+
+  utter_faqcheckout:
+    - text: "Our check-out time is 11 AM."
+    - text: "You need to check out by 11 AM."
+    - text: "Check-out is by 11 AM. Let us know if you need a late check-out."
+
+  utter_faqchildrenage:
+    - text: "Children up to 12 years old can stay for free with their parents."
+    - text: "We allow children up to 12 years old to stay for free when sharing a room with parents."
+    - text: "Children aged 12 and under can stay for free with an adult."
+
+  utter_faqearlycheckin:
+    - text: "Early check-in is subject to availability. Please check with the reception upon arrival."
+    - text: "We can offer early check-in if available. Please inquire at the reception."
+    - text: "Early check-in depends on room availability. We'll do our best to accommodate your request."
+
+  utter_faqlatecheckin:
+    - text: "Late check-in is available. Please inform us in advance if you will be arriving late."
+    - text: "We can accommodate late check-ins. Just let us know your expected arrival time."
+    - text: "Late check-in is possible. Please notify us if you plan to arrive late."
+
+  utter_faqlatecheckout:
+    - text: "Late check-out is available upon request and subject to availability."
+    - text: "We offer late check-out depending on availability. Please ask the reception."
+    - text: "You can request a late check-out. It's subject to room availability."
+
+  utter_faqroomcount:
+    - text: "You can book up to 5 rooms in a single reservation."
+    - text: "We allow booking of up to 5 rooms per reservation."
+    - text: "A single reservation can include up to 5 rooms."
+
+  utter_faqbabycot:
+    - text: "Baby cots are available upon request. Please let us know in advance."
+    - text: "We provide baby cots free of charge. Please request one during your booking."
+    - text: "Baby cots are available. Just mention your requirement when booking."
+
+  utter_faqbreakfasttime:
+    - text: "Breakfast is served from 7 AM to 10 AM."
+    - text: "You can enjoy breakfast between 7 AM and 10 AM."
+    - text: "Our breakfast hours are from 7 AM to 10 AM."
+
+  utter_faqrefundable:
+    - text: "Refunds are possible depending on the cancellation policy of your booking."
+    - text: "We offer refunds according to our cancellation policy. Please check your booking details."
+    - text: "Refund eligibility depends on the terms of your reservation."
+
+  utter_faqreceptiontime:
+    - text: "Our reception is open 24 hours a day."
+    - text: "The reception operates 24/7 for your convenience."
+    - text: "You can reach the reception anytime as it is open 24 hours."
+
+  utter_faqparking:
+    - text: "Yes, we provide car parking facilities for our guests."
+    - text: "Parking is available at our hotel. Please let us know if you need a space."
+    - text: "We offer parking for our guests. It's available upon request."
+
+  utter_faqparkingcost:
+    - text: "The cost for parking is $10 per day."
+    - text: "Parking costs $10 per day."
+    - text: "Our daily parking fee is $10."
+
+  utter_faqcheckintime:
+    - text: "Our standard check-in time is from 2 PM onwards."
+  utter_checkout:
+    - text: "Our check-out time is 11 AM."
+  utter_latecheckin:
+    - text: "Late check-in is available. Please inform us in advance if you will be arriving late."
+  utter_receptiontime:
+    - text: "Our reception is open 24 hours a day."
+  utter_faqcarparking:
+    - text: "Yes, we provide car parking facilities for our guests."
+  utter_reservationconfirm:
+    - text: "Your reservation has been confirmed."
+  utter_faqnearestairport:
+    - text: "The nearest airport is XYZ International Airport."
+  utter_faqmodifyreservation:
+    - text: "You can modify your reservation by contacting our reservation team."
+  utter_faqmeetingroom:
+    - text: "We have meeting rooms available for booking. Please contact our events team for more details."
+  utter_faqsecurity:
+    - text: "We take security seriously at our hotel. Our facilities are monitored 24/7."
+  utter_faqluggage:
+    - text: "We offer luggage storage facilities for our guests."
+  utter_faqcontactnumber:
+    - text: "You can reach us at +123456789 for any further assistance."
+
+  utter_faqpartialcancel:
+    - text: "You can partially cancel your reservation. Please provide details of what you'd like to cancel."
+    - text: "Partial cancellation is possible. Can you specify which part of your reservation you'd like to cancel?"
+    - text: "Yes, partial cancellations are allowed. Please let us know which part you'd like to cancel."
+
+  utter_faqpetpolicy:
+    - text: "We welcome pets at our hotel. A cleaning fee may apply."
+    - text: "Pets are allowed. Please note there might be an additional cleaning fee."
+    - text: "Yes, pets are welcome. There could be a cleaning fee depending on"
+
+  utter_faq_prompt:
+    - text: "Your FAQ prompt response goes here."
