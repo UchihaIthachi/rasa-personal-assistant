@@ -1,0 +1,5 @@
+# Ignore .rasa directory
+.rasa/
+
+# Ignore models directory
+models/
