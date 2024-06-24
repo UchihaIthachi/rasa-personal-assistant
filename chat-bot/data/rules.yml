@@ -21,7 +21,142 @@ rules:
       - intent: book_room
       - action: utter_book_room
 
+  - rule: asking room packages
+    steps:
+      - intent: room_packages
+      - action: utter_room_packages
+
+  - rule: asking room types
+    steps:
+      - intent: room_types
+      - action: utter_room_types
+
   - rule: Handle reservation cancellation
     steps:
       - intent: cancel_reservation
       - action: utter_cancel_reservation
+
+  - rule: Check availability
+    steps:
+      - intent: check_availability
+      - action: utter_check_availability
+
+  - rule: Answer FAQ about breakfast
+    steps:
+      - intent: faqbreakfast
+      - action: utter_faqbreakfast
+
+  - rule: Answer FAQ about cancellation policy
+    steps:
+      - intent: faqcancellationpolicy
+      - action: utter_faqcancellationpolicy
+
+  - rule: Answer FAQ about check-in time
+    steps:
+      - intent: faqcheckin
+      - action: utter_faqcheckin
+
+  - rule: Answer FAQ about check-in age
+    steps:
+      - intent: faqcheckinage
+      - action: utter_faqcheckinage
+
+  - rule: Answer FAQ about children age
+    steps:
+      - intent: faqchildrenage
+      - action: utter_faqchildrenage
+
+  - rule: Answer FAQ about early check-in
+    steps:
+      - intent: faqearlycheckin
+      - action: utter_faqearlycheckin
+
+  - rule: Answer FAQ about late check-out
+    steps:
+      - intent: faqlatecheckout
+      - action: utter_faqlatecheckout
+
+  - rule: Answer FAQ about room count
+    steps:
+      - intent: faqroomcount
+      - action: utter_faqroomcount
+
+  - rule: Answer FAQ about baby cot
+    steps:
+      - intent: faqbabycot
+      - action: utter_faqbabycot
+
+  - rule: Answer FAQ about breakfast time
+    steps:
+      - intent: faqbreakfasttime
+      - action: utter_faqbreakfasttime
+
+  - rule: Answer FAQ about refunds
+    steps:
+      - intent: faqrefundable
+      - action: utter_faqrefundable
+
+  - rule: Answer FAQ about parking cost
+    steps:
+      - intent: faqparkingcost
+      - action: utter_faqparkingcost
+
+  - rule: Answer FAQ about check-in time
+    steps:
+      - intent: faqcheckin
+      - action: utter_faqcheckin
+
+  - rule: Answer FAQ about reservation confirmation
+    steps:
+      - intent: faqreservaconfirm
+      - action: utter_reservationconfirm
+
+  - rule: Answer FAQ about nearest airport
+    steps:
+      - intent: faqnearestairport
+      - action: utter_faqnearestairport
+
+  - rule: Answer FAQ about modifying reservation
+    steps:
+      - intent: faqmodifyreservation
+      - action: utter_faqmodifyreservation
+
+  - rule: Answer FAQ about meeting room
+    steps:
+      - intent: faqmeetingroom
+      - action: utter_faqmeetingroom
+
+  - rule: Answer FAQ about security
+    steps:
+      - intent: faqsecurity
+      - action: utter_faqsecurity
+
+  - rule: Answer FAQ about luggage
+    steps:
+      - intent: faqluggage
+      - action: utter_faqluggage
+
+  - rule: Answer FAQ about contact number
+    steps:
+      - intent: faqcontact
+      - action: utter_faqcontact
+
+  - rule: Answer FAQ about partial cancellation
+    steps:
+      - intent: faqpartialcancel
+      - action: utter_faqpartialcancel
+
+  - rule: Answer FAQ about pet policy
+    steps:
+      - intent: faqpetpolicy
+      - action: utter_faqpetpolicy
+
+  - rule: Handle mood great
+    steps:
+      - intent: mood_great
+      - action: utter_happy
+
+  - rule: Handle FAQ prompt
+    steps:
+      - intent: faq
+      - action: utter_faq_prompt

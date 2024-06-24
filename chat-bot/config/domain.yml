@@ -4,17 +4,65 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
+actions:
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_iamabot
+  - utter_book_room
+  - utter_room_packages
+  - utter_room_types
+  - utter_cancel_reservation
+  - utter_check_availability
+  - utter_faqbreakfast
+  - utter_faqcancellationpolicy
+  - utter_faqcheckin
+  - utter_faqcheckinage
+  - utter_faqcheckout
+  - utter_faqchildrenage
+  - utter_faqearlycheckin
+  - utter_faqlatecheckin
+  - utter_faqlatecheckout
+  - utter_faqroomcount
+  - utter_faqbabycot
+  - utter_faqbreakfasttime
+  - utter_faqrefundable
+  - utter_faqreceptiontime
+  - utter_faqparking
+  - utter_faqparkingcost
+  - utter_checkout
+  - utter_latecheckin
+  - utter_receptiontime
+  - utter_faqcarparking
+  - utter_reservationconfirm
+  - utter_faqnearestairport
+  - utter_faqmodifyreservation
+  - utter_faqmeetingroom
+  - utter_faqsecurity
+  - utter_faqluggage
+  - utter_faqcontact
+  - utter_faqpartialcancel
+  - utter_faqpetpolicy
+  - utter_faqpetcost
+  - utter_faq_prompt
+  - utter_faqservices
+
 intents:
   - greet
   - deny
   - mood_unhappy
   - mood_great
+  - what
   - affirm
   - check_availability
   - goodbye
   - bot_challenge
   - cancel_reservation
   - book_room
+  - room_packages
+  - room_types
   - faq
   - faqbreakfast
   - faqcancellationpolicy
@@ -34,13 +82,15 @@ intents:
   - faqparkingcost
   - faqpartialcancel
   - faqpetpolicy
+  - faqpetcost
   - faqreservaconfirm
   - faqnearestairport
   - faqmodifyreservation
   - faqmeetingroom
   - faqsecurity
   - faqluggage
-  - faqcontactnumber
+  - faqcontact
+  - faqservices
 
 responses:
   utter_greet:
@@ -179,9 +229,6 @@ responses:
     - text: "The cost for parking is $10 per day."
     - text: "Parking costs $10 per day."
     - text: "Our daily parking fee is $10."
-
-  utter_faqcheckintime:
-    - text: "Our standard check-in time is from 2 PM onwards."
   utter_checkout:
     - text: "Our check-out time is 11 AM."
   utter_latecheckin:
@@ -202,8 +249,11 @@ responses:
     - text: "We take security seriously at our hotel. Our facilities are monitored 24/7."
   utter_faqluggage:
     - text: "We offer luggage storage facilities for our guests."
-  utter_faqcontactnumber:
-    - text: "You can reach us at +123456789 for any further assistance."
+  utter_faqcontact:
+    - text: |
+        You can reach us at +123456789 for any further assistance.
+        Our email is contact@example.com.
+        Our address is 1234 Example St, City, Country.
 
   utter_faqpartialcancel:
     - text: "You can partially cancel your reservation. Please provide details of what you'd like to cancel."
@@ -217,3 +267,22 @@ responses:
 
   utter_faq_prompt:
     - text: "Your FAQ prompt response goes here."
+
+  utter_room_types:
+    - text: "We offer several room types including standard, deluxe, and suite."
+
+  utter_room_packages:
+    - text: "We have several packages available, such as bed and breakfast, half board, and full board."
+
+  utter_faqpetcost:
+    - text: "The cost for pet accommodation is $20 per night."
+
+  utter_faqservices:
+    - text: |
+        Our hotel offers a variety of services, including:
+        - In-room dining
+        - Spa treatments
+        - Tour arrangements
+        - Currency exchange
+
+        If you have specific preferences or questions, please let us know!

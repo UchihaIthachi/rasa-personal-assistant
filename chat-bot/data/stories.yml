@@ -59,7 +59,7 @@ stories:
       - intent: faq
       - action: utter_faq_prompt
       - intent: faqcheckin
-      - action: utter_faqcheckintime
+      - action: utter_faqcheckin
 
   - story: faqcheckouttime
     steps:
@@ -243,8 +243,8 @@ stories:
       - action: utter_greet
       - intent: faq
       - action: utter_faq_prompt
-      - intent: faqcontactnumber
-      - action: utter_faqcontactnumber
+      - intent: faqcontact
+      - action: utter_faqcontact
 
   - story: FAQ about checkout time
     steps:
@@ -285,42 +285,35 @@ stories:
       - intent: mood_unhappy
       - action: utter_did_that_help
 
-  - story: Check availability
+  - story: Respond to pet policy and fees
     steps:
-      - intent: check_availability
-      - action: utter_check_availability
+      - intent: faqpetpolicy
+      - action: utter_faqpetpolicy
+      - intent: what
+      - action: utter_faqpetcost
 
-  - story: User is unhappy
+  - story: Respond to pet policy cost
     steps:
-      - intent: mood_unhappy
-      - action: utter_cheer_up
+      - intent: faqpetpolicy
+      - action: utter_faqpetpolicy
+      - intent: faqpetcost
+      - action: utter_faqpetcost
 
-  - story: User is happy
-    steps:
-      - intent: mood_great
-      - action: utter_happy
-
-  - story: FAQ Check-in time
-    steps:
-      - intent: faqcheckin
-      - action: utter_faqcheckin
-
-  - story: FAQ about check-in age
-    steps:
-      - intent: faqcheckinage
-      - action: utter_faqcheckinage
-
-  - story: FAQ Reception time
-    steps:
-      - intent: faqreceptiontime
-      - action: utter_faqreceptiontime
-
-  - story: FAQ Parking
+  - story: Provide contact details after parking inquiry
     steps:
       - intent: faqparking
       - action: utter_faqparking
+      - intent: affirm
+      - action: utter_faqcontact
 
-  - story: FAQ Late check-in
+  - story: Provide contact details directly
     steps:
-      - intent: faqlatecheckin
-      - action: utter_faqlatecheckin
+      - intent: faqparking
+      - action: utter_faqparking
+      - intent: faqcontact
+      - action: utter_faqcontact
+
+  - story: Respond to "What services are available"
+    steps:
+      - intent: faqservices
+      - action: utter_faqservices

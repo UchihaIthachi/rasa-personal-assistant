@@ -73,6 +73,7 @@ nlu:
       - affirmative
       - yeah
       - sure thing
+      - yes sure
 
   - intent: deny
     examples: |
@@ -123,6 +124,7 @@ nlu:
       - I'm in a great mood
       - ecstatic
       - over the moon
+      - I'm fine
 
   - intent: mood_unhappy
     examples: |
@@ -178,19 +180,23 @@ nlu:
       - bye for now
       - stay safe
 
+  - intent: what
+    examples: |
+      - what
+      - what ?
+      - ?
+      - wt
+
   ############################################################
+
   - intent: book_room
     examples: |
       - I need to book a room
       - I want to reserve a room
       - Can I book a room?
-      - I need a room for two nights
       - Book a room for me
-      - I'd like to book a room
-      - Can you help me book a room?
       - Reserve a room for me
       - I want to book a suite
-      - Can you reserve a double room?
       - I need to book a room for three nights
       - Help me book a room for next weekend
       - I would like to book a room for tonight
@@ -199,6 +205,40 @@ nlu:
       - Can I get a room for this Friday?
       - I want to book a room for my vacation
       - Reserve a room with a sea view
+
+  - intent: check_availability
+    examples: |
+      - Do you have rooms available?
+      - Can you check if there are rooms available?
+      - Is there any availability for next weekend?
+      - Check room availability for tonight.
+      - Are there any rooms left for tomorrow?
+      - What dates do you have available?
+      - Tell me about room availability.
+      - Availability for a room next week?
+      - Can you see if there are open rooms?
+      - Is there availability for a room tomorrow?
+      - Do you have any vacant rooms for tonight?
+      - I want to know the availability of rooms for the weekend.
+      - What rooms are available for July 15th?
+      - Do you have any free rooms for tomorrow night?
+
+  - intent: room_packages
+    examples: |
+      - what kind of room packages do you have
+      - what packages do you have
+      - what room packages do you offer
+      - Can I know the room packages you have
+      - what are the available room packages
+      - show me the available room packages in the hotel
+      - can i know about room packages
+
+  - intent: room_types
+    examples: |
+      - Show the room types in your hotel
+      - what type of rooms do you have
+      - what type of rooms do you have in the hotel
+      - what are the room types you have
 
   - intent: cancel_reservation
     examples: |
@@ -239,6 +279,7 @@ nlu:
       - are you a digital assistant?
       - are you a real person or a computer?
       - am I interacting with AI?
+      - who are you?
 
   - intent: faqbreakfast
     examples: |
@@ -610,7 +651,7 @@ nlu:
       - is there a confirmation number for my reservation?
       - can you provide me with a booking confirmation?
 
-  - intent: faqcontactnumber
+  - intent: faqcontact
     examples: |
       - What is the contact number of your hotel?
       - Can I get the phone number of your customer service?
@@ -624,6 +665,15 @@ nlu:
       - how can I reach you by phone?
       - what number can I call for information?
       - is there a direct line to the hotel?
+      - What are your contact details?
+      - Can you provide your contact information?
+      - How can I contact you?
+      - What is your email address?
+      - Can you provide your email?
+      - How do I email you?
+      - What is your physical address?
+      - Can you tell me your address?
+      - Where are you located?
 
   - intent: faqluggage
     examples: |
@@ -701,28 +751,29 @@ nlu:
       - how do you handle security at the hotel?
       - are there security checks at the entrance?
 
-  - intent: check_availability
+  - intent: faqservices
     examples: |
-      - Can you check if there are rooms available?
-      - Is there any availability for next weekend?
-      - I want to see if there are any rooms free on the 15th of July.
-      - Check room availability for tonight.
-      - Are there any rooms left for tomorrow?
-      - What dates do you have available?
-      - Tell me about room availability.
-      - Availability for a room next week?
-      - Can you check if there are any rooms open?
-      - do you have any rooms available?
-      - is there a vacancy for next weekend?
-      - I need to check if you have rooms for July 15th.
-      - are there any rooms free for tonight?
-      - are there any rooms for tomorrow?
-      - can you tell me your available dates?
-      - do you have rooms next week?
-      - can you see if there are open rooms?
-      - is there availability for a room tomorrow?
-      - do you have any vacant rooms for tonight?
-      - I want to know the availability of rooms for the weekend.
-      - are there any rooms open for next week?
-      - what rooms are available for July 15th?
-      - do you have any free rooms for tomorrow night?
+      - What services do you offer?
+      - Can you tell me about your services?
+      - What are the amenities available?
+      - List of services provided
+      - What facilities are there?
+      - Tell me more about your offerings
+      - Service details
+      - What can I expect in terms of amenities?
+      - What amenities are included?
+      - What services are available at your hotel?
+      - What does your hotel offer in terms of facilities?
+
+  - intent: faqpetcost
+    examples: |
+      - How much does it cost to bring a pet?
+      - What are the charges for pets?
+      - Do you charge for pets?
+      - Cost of bringing my pet?
+      - Pet fee details?
+      - How much is the pet deposit?
+      - Are there any fees for bringing pets?
+      - What is your policy on pets and fees?
+      - Is there an extra charge for pets?
+      - Pet accommodation costs?

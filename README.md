@@ -1,7 +1,3 @@
-Sure! Here's a comprehensive README for your chatbot for hotel management using Rasa:
-
----
-
 # Hotel Management Chatbot
 
 This repository contains a chatbot for hotel management, built using Rasa. The chatbot can handle various customer inquiries such as booking rooms, canceling reservations, checking availability, and providing information about hotel amenities.
@@ -143,7 +139,3 @@ Contributions are welcome! Please create a new issue or submit a pull request if
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-This README provides a clear guide on how to set up, train, and run the hotel management chatbot, making it easier for anyone to get started with your project.
