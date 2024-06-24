@@ -8,9 +8,58 @@ assistant_id: 20240616-000849-devout-curry
 
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-language: en
+language: "en"
 
-pipeline: null
+pipeline:
+  # Step 1: Tokenization
+  - name: WhitespaceTokenizer
+    intent_tokenization_flag: True
+    intent_split_symbol: "+"
+
+  # Step 2: Featurization
+  - name: RegexFeaturizer
+    alias: "regex"
+  - name: LexicalSyntacticFeaturizer
+    alias: "lexical-syntactic"
+  - name: CountVectorsFeaturizer
+    alias: "cvf-word"
+  - name: CountVectorsFeaturizer
+    alias: "cvf-char"
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+
+  # Instead of ConveRTFeaturizer, use BERT-based embeddings
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-uncased"
+
+  # Step 3: Intent Classification and Entity Recognition
+  - name: DIETClassifier
+    epochs: 100
+    batch_strategy: balanced
+    featurizers: ["cvf-word", "regex", "lexical-syntactic", "LanguageModelFeaturizer"]
+
+  # Step 4: Entity Synonym Mapping
+  - name: EntitySynonymMapper
+
+  # Step 5: Response Selection
+  - name: ResponseSelector
+    featurizers: ["cvf-word", "LanguageModelFeaturizer"]
+    epochs: 100
+
+# Policies for dialogue management
+policies:
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: TEDPolicy
+    max_history: 10
+    epochs: 100
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: "action_default_fallback"
+    enable_fallback_prediction: True
+
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
@@ -35,7 +84,7 @@ pipeline: null
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
-policies: null
+#policies: null
 # # No configuration for policies was provided. The following default policies were used to train your model.
 # # If you'd like to customize them, uncomment and adjust the policies.
 # # See https://rasa.com/docs/rasa/policies for more information.
