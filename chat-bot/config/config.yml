@@ -38,7 +38,8 @@ pipeline:
   - name: DIETClassifier
     epochs: 100
     batch_strategy: balanced
-    featurizers: ["cvf-word", "regex", "lexical-syntactic", "LanguageModelFeaturizer"]
+    featurizers:
+      ["cvf-word", "regex", "lexical-syntactic", "LanguageModelFeaturizer"]
 
   # Step 4: Entity Synonym Mapping
   - name: EntitySynonymMapper
@@ -59,7 +60,6 @@ policies:
     core_fallback_threshold: 0.4
     core_fallback_action_name: "action_default_fallback"
     enable_fallback_prediction: True
-
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.

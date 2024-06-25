@@ -19,14 +19,21 @@ shell: ## Run an interactive Rasa shell
 	$(MAKE) run-actions &
 	rasa shell -m $(CHATBOT_DIR)/models --endpoints $(CHATBOT_DIR)/config/endpoints.yml
 
+# Run the Chatbot Widget
+run-widget: ## Run a simple HTTP server to serve Chatbot-Widget/index.html
+	python3 -m http.server --directory Chatbot-Widget 8000
+
 # Run the Rasa server with API enabled
 run: ## Run the Rasa server with API enabled
 	$(MAKE) run-actions &
-	rasa run --enable-api -m $(CHATBOT_DIR)/models --cors "*" --debug
+	rasa run --enable-api -m $(CHATBOT_DIR)/models --cors "*" --debug &
+	$(MAKE) run-widget
+
 # Run Rasa X with API enabled and CORS support
 run-x: ## Run Rasa X with API enabled and CORS support
 	$(MAKE) run-actions &
 	rasa x --no-prompt -c $(CHATBOT_DIR)/config/config.yml --cors "*" --endpoints $(CHATBOT_DIR)/config/endpoints.yml --enable-api
+
 
 # Validate the Rasa files
 validate: ## Validate the Rasa files

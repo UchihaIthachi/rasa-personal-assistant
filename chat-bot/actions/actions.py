@@ -9,6 +9,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+import openai
 #
 #
 # class ActionHelloWorld(Action):
@@ -112,3 +113,27 @@ class ActionProvideInformation(Action):
         # Provide information about the hotel
         dispatcher.utter_message(text="Our hotel offers a variety of amenities including a spa, fitness center, and free Wi-Fi.")
         return []
+
+class ActionGenerateFallbackResponse(Action):
+
+    def name(self) -> str:
+        return "action_generate_fallback_response"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        user_message = tracker.latest_message.get('text')
+        response = self.generate_gpt3_response(user_message)
+        
+        dispatcher.utter_message(text=response)
+        return []
+
+    def generate_gpt3_response(self, message):
+        openai.api_key = "YOUR_OPENAI_API_KEY"
+        response = openai.Completion.create(
+            engine="davinci",
+            prompt=message,
+            max_tokens=150
+        )
+        return response.choices[0].text.strip()

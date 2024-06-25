@@ -48,6 +48,8 @@ actions:
   - utter_faqpetcost
   - utter_faq_prompt
   - utter_faqservices
+  - action_default_fallback
+  - action_generate_fallback_response
 
 intents:
   - greet
@@ -286,3 +288,24 @@ responses:
         - Currency exchange
 
         If you have specific preferences or questions, please let us know!
+
+  utter_fallback:
+    - text: "I'm sorry, I didn't understand that. Can you please rephrase?"
+  utter_custom_fallback:
+    - text: "{gpt3_response}"
+
+entities:
+  - room_type
+  - booking_date
+
+slots:
+  room_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type
+  booking_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: booking_date
