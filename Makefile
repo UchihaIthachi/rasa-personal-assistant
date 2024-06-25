@@ -1,6 +1,7 @@
 CHATBOT_DIR := chat-bot
-WEBSITE_DIR := website
+WEBSITE_DIR := chatbot-html-js-css-web-app
 API_DIR := rest-api
+REACT_APP_DIR := chatbot-react-vite-web-app
 
 # Train the full Rasa model
 train: ## Train the full Rasa model
@@ -19,20 +20,19 @@ shell: ## Run an interactive Rasa shell
 	$(MAKE) run-actions &
 	rasa shell -m $(CHATBOT_DIR)/models --endpoints $(CHATBOT_DIR)/config/endpoints.yml
 
-# Run the Chatbot Widget
-run-widget: ## Run a simple HTTP server to serve Chatbot-Widget/index.html
-	python3 -m http.server --directory Chatbot-Widget 8000
+# Build and serve the React app
+build-react: ## Build the React app
+	cd $(REACT_APP_DIR) && npm install && npm run build && cd ..
 
-# Run the Rasa server with API enabled
-run: ## Run the Rasa server with API enabled
+serve-react: ## Serve the React app
+	cd $(REACT_APP_DIR) && npm run dev
+
+# Run the Rasa server with React web app
+run: ## Run the Rasa server with React web app
 	$(MAKE) run-actions &
 	rasa run --enable-api -m $(CHATBOT_DIR)/models --cors "*" --debug &
-	$(MAKE) run-widget
-
-# Run Rasa X with API enabled and CORS support
-run-x: ## Run Rasa X with API enabled and CORS support
-	$(MAKE) run-actions &
-	rasa x --no-prompt -c $(CHATBOT_DIR)/config/config.yml --cors "*" --endpoints $(CHATBOT_DIR)/config/endpoints.yml --enable-api
+	$(MAKE) serve-react &
+	cd ..
 
 
 # Validate the Rasa files
