@@ -3,3 +3,42 @@
 
 # Ignore models directory
 models/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+
+# Logs
+logs
+*.log
+logs/**/*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+!.env.local
+.env.*
+!.env.*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local environment variables
+.env.local
+.env.*.local
+
+# Miscellaneous
+*.DS_Store
