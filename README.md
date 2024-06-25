@@ -1,15 +1,19 @@
-# Hotel Management Chatbot
+# Hotel Assistant Chatbot
 
-This repository contains a chatbot for hotel management, built using Rasa. The chatbot can handle various customer inquiries such as booking rooms, canceling reservations, checking availability, and providing information about hotel amenities.
+Welcome to the Hotel Assistant Chatbot project! This repository contains a conversational AI powered by the Rasa framework, integrating Language Model capabilities from OpenAI. The chatbot assists users with various hotel-related queries, leveraging both structured data and natural language understanding.
 
 ## Table of Contents
 
+- [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Training the Model](#training-the-model)
   - [Running the Action Server](#running-the-action-server)
   - [Interacting with the Bot](#interacting-with-the-bot)
   - [Using Rasa X](#using-rasa-x)
+- [Web Application Implementations](#web-application-implementations)
+  - [HTML + JS + CSS](#html--js--css)
+  - [React + Vite](#react--vite)
 - [Configuration](#configuration)
 - [File Structure](#file-structure)
 - [Makefile Commands](#makefile-commands)
@@ -21,8 +25,8 @@ This repository contains a chatbot for hotel management, built using Rasa. The c
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/your-username/hotel-management-chatbot.git
-   cd hotel-management-chatbot
+   git clone https://github.com/your-username/hotel-assistant-bot.git
+   cd hotel-assistant-bot
    ```
 
 2. **Create and activate a virtual environment:**
@@ -41,7 +45,7 @@ This repository contains a chatbot for hotel management, built using Rasa. The c
 
 ### Training the Model
 
-To train the model with your current data, run:
+To train the Rasa model with your current data, run:
 
 ```sh
 make train
@@ -73,17 +77,14 @@ Alternatively, you can run the bot and interact with it via HTTP API:
 make run
 ```
 
-Once the server is running, you can send messages to the bot using a curl command or any API testing tool like Postman:
+Once the server is running, you can interact with the bot using either of the following web applications:
 
-```sh
-curl -X POST \
-  http://localhost:5005/webhooks/rest/webhook \
-  -H "Content-Type: application/json" \
-  -d '{
-    "sender": "test_user",
-    "message": "I need to book a room"
-  }'
-```
+- **[chatbot-html-js-css-web-app](./chatbot-html-js-css-web-app)**: Basic interface for chatting with the bot using HTML, JavaScript, and CSS.
+  - **Directory**: [Chatbot HTML + JS + CSS](https://github.com/JiteshGaikwad/Chatbot-Widget/tree/main)
+- **[chatbot-react-vite-web-app](./chatbot-react-vite-web-app)**: Modern and dynamic web application using React + Vite.
+  - **Directory**: [React Chat Widget](https://github.com/Wolox/react-chat-widget/tree/master)
+
+To run the React application, navigate to its directory and execute `npm run dev`.
 
 ### Using Rasa X
 
@@ -97,17 +98,19 @@ Open Rasa X in your web browser at `http://localhost:5002`. Rasa X provides an i
 
 ## Configuration
 
-- **Domain File:** `domain.yml` contains the intents, entities, slots, responses, and forms used by the bot.
+- **Domain File:** `configs/domain.yml` contains the intents, entities, slots, responses, and forms used by the bot.
 - **Training Data:** `data` directory contains the NLU and Core training data.
-- **Config File:** `config.yml` specifies the pipeline and policies for training the model.
+- **Config File:** `configs/config.yml` specifies the pipeline and policies for training the model.
 - **Endpoints File:** `configs/endpoints.yml` defines the endpoints for the action server and other external services.
 
 ## File Structure
 
-```sh
-hotel-management-chatbot/
+```plaintext
+hotel-assistant-bot/
 ├── .rasa/
 ├── configs/
+│   ├── domain.yml
+│   ├── config.yml
 │   └── endpoints.yml
 ├── data/
 │   ├── nlu.yml
@@ -116,8 +119,8 @@ hotel-management-chatbot/
 ├── models/
 ├── actions/
 │   └── actions.py
-├── domain.yml
-├── config.yml
+├── chatbot-react-vite-web-app/
+├── chatbot-html-js-css-web-app/
 ├── requirements.txt
 ├── Makefile
 └── README.md
@@ -125,12 +128,15 @@ hotel-management-chatbot/
 
 ## Makefile Commands
 
-- **`make train`**: Train the model using the domain, data, and config files.
+Here are some useful commands to manage and run your Hotel Assistant Chatbot:
+
+- **`make train`**: Train the Rasa model with domain, data, and config files.
 - **`make train-nlu`**: Train only the NLU model.
-- **`make run-actions`**: Start the action server.
+- **`make run-actions`**: Start the action server for handling custom actions.
 - **`make shell`**: Start the action server and open Rasa shell for interaction.
 - **`make run`**: Start the action server and Rasa server with API enabled.
-- **`make run-x`**: Start the action server and Rasa X for bot management.
+- **`make validate`**: Validate the Rasa configuration and training data.
+- **`make help`**: Display help information with available targets.
 
 ## Contributing
 
@@ -139,3 +145,14 @@ Contributions are welcome! Please create a new issue or submit a pull request if
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+```
+
+### Explanation:
+
+- **Introduction**: Provides a concise overview of the Hotel Assistant Chatbot project, highlighting its purpose and technologies used.
+- **Web Application Implementations**: Details the two implementations for the web interface using HTML + JS + CSS and React + Vite, linking directly to their respective GitHub repositories.
+- **Updated Sections**: Ensures all sections (installation, usage, configuration, file structure, makefile commands, contributing, license) are clear and up-to-date with the latest project details.
+
+Feel free to further customize the README to fit your specific project requirements and provide additional information as needed.
+```
