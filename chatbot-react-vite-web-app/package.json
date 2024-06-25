@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:app" : "vite build",
-    "build:bundle" : "webpack --mode production",
+    "build:app": "vite build",
+    "build:bundle": "webpack --mode production",
     "build": "npm run build:app && npm run build:bundle",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-chat-widget": "^3.1.4",
     "react-dom": "^18.3.1"
