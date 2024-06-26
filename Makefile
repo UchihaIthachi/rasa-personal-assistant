@@ -25,14 +25,14 @@ build-react: ## Build the React app
 	cd $(REACT_APP_DIR) && npm install && npm run build && cd ..
 
 serve-react: ## Serve the React app
-	cd $(REACT_APP_DIR) && npm run dev
+	cd $(REACT_APP_DIR) && npm run dev && cd ..
 
 # Run the Rasa server with React web app
 run: ## Run the Rasa server with React web app
 	$(MAKE) run-actions &
 	rasa run --enable-api -m $(CHATBOT_DIR)/models --cors "*" --debug &
-	$(MAKE) serve-react &
-	cd ..
+	$(MAKE) serve-react 
+
 
 
 # Validate the Rasa files
