@@ -2,8 +2,7 @@
 # https://rasa.com/docs/rasa/model-configuration/
 recipe: default.v1
 
-# The assistant project unique identifier
-# This default value must be replaced with a unique assistant name within your deployment
+# Unique identifier for the assistant project
 assistant_id: 20240616-000849-devout-curry
 
 # Configuration for Rasa NLU.
@@ -11,55 +10,130 @@ assistant_id: 20240616-000849-devout-curry
 language: "en"
 
 pipeline:
-  # Step 1: Tokenization
-  - name: WhitespaceTokenizer
-    intent_tokenization_flag: True
-    intent_split_symbol: "+"
+  # Loads the spaCy language model
+  - name: SpacyNLP
+    model: "en_core_web_md"
 
-  # Step 2: Featurization
-  - name: RegexFeaturizer
-    alias: "regex"
-  - name: LexicalSyntacticFeaturizer
-    alias: "lexical-syntactic"
+  # Tokenizes the input using spaCy
+  - name: SpacyTokenizer
+
+  # Featurizes tokens with spaCy features
+  - name: SpacyFeaturizer
+
+  # Featurizes using word n-grams (1-2)
   - name: CountVectorsFeaturizer
-    alias: "cvf-word"
-  - name: CountVectorsFeaturizer
-    alias: "cvf-char"
-    analyzer: "char_wb"
+    analyzer: "word"
     min_ngram: 1
-    max_ngram: 4
+    max_ngram: 2
 
-  # Instead of ConveRTFeaturizer, use BERT-based embeddings
-  - name: LanguageModelFeaturizer
-    model_name: "bert"
-    model_weights: "bert-base-uncased"
+  # Featurizes using character n-grams (3-5)
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 3
+    max_ngram: 5
 
-  # Step 3: Intent Classification and Entity Recognition
+  # Featurizes text with regex patterns
+  - name: RegexFeaturizer
+
+  # Adds lexical and syntactic features
+  - name: LexicalSyntacticFeaturizer
+
+  # Main classifier for intent and entity recognition
   - name: DIETClassifier
     epochs: 100
-    batch_strategy: balanced
-    featurizers:
-      ["cvf-word", "regex", "lexical-syntactic", "LanguageModelFeaturizer"]
+    constrain_similarities: true
 
-  # Step 4: Entity Synonym Mapping
+  # Maps synonyms for recognized entities
   - name: EntitySynonymMapper
 
-  # Step 5: Response Selection
+  # Selects responses for FAQs and specific queries
   - name: ResponseSelector
-    featurizers: ["cvf-word", "LanguageModelFeaturizer"]
     epochs: 100
 
-# Policies for dialogue management
+  # Extracts entities using Conditional Random Fields
+  - name: CRFEntityExtractor
+
+  # Extracts entities based on predefined regex patterns
+  - name: RegexEntityExtractor
+
+  # Classifier for handling low confidence predictions
+  - name: FallbackClassifier
+    threshold: 0.7
+
 policies:
-  - name: MemoizationPolicy
-    max_history: 5
-  - name: TEDPolicy
-    max_history: 10
-    epochs: 100
+  # RulePolicy handles defined rules and fallbacks
   - name: RulePolicy
     core_fallback_threshold: 0.4
     core_fallback_action_name: "action_default_fallback"
     enable_fallback_prediction: True
+
+  # MemoizationPolicy remembers exact conversation paths
+  - name: MemoizationPolicy
+    max_history: 5
+
+  # TEDPolicy predicts next actions based on context
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+
+  # AugmentedMemoizationPolicy remembers more diverse paths
+  - name: AugmentedMemoizationPolicy
+    max_history: 5
+
+  # UnexpecTEDIntentPolicy handles unexpected intents
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+# pipeline:
+#   # Step 1: Tokenization
+#   - name: WhitespaceTokenizer
+#     intent_tokenization_flag: True
+#     intent_split_symbol: "+"
+
+#   # Step 2: Featurization
+#   - name: RegexFeaturizer
+#     alias: "regex"
+#   - name: LexicalSyntacticFeaturizer
+#     alias: "lexical-syntactic"
+#   - name: CountVectorsFeaturizer
+#     alias: "cvf-word"
+#   - name: CountVectorsFeaturizer
+#     alias: "cvf-char"
+#     analyzer: "char_wb"
+#     min_ngram: 1
+#     max_ngram: 4
+
+#   # Instead of ConveRTFeaturizer, use BERT-based embeddings
+#   - name: LanguageModelFeaturizer
+#     model_name: "bert"
+#     model_weights: "bert-base-uncased"
+
+#   # Step 3: Intent Classification and Entity Recognition
+#   - name: DIETClassifier
+#     epochs: 100
+#     batch_strategy: balanced
+#     featurizers:
+#       ["cvf-word", "regex", "lexical-syntactic", "LanguageModelFeaturizer"]
+
+#   # Step 4: Entity Synonym Mapping
+#   - name: EntitySynonymMapper
+
+#   # Step 5: Response Selection
+#   - name: ResponseSelector
+#     featurizers: ["cvf-word", "LanguageModelFeaturizer"]
+#     epochs: 100
+
+# # Policies for dialogue management
+# policies:
+#   - name: MemoizationPolicy
+#     max_history: 5
+#   - name: TEDPolicy
+#     max_history: 10
+#     epochs: 100
+#   - name: RulePolicy
+#     core_fallback_threshold: 0.4
+#     core_fallback_action_name: "action_default_fallback"
+#     enable_fallback_prediction: True
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
@@ -97,3 +171,4 @@ policies:
 #     max_history: 5
 #     epochs: 100
 #     constrain_similarities: true
+

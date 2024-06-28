@@ -48,8 +48,10 @@ actions:
   - utter_faqpetcost
   - utter_faq_prompt
   - utter_faqservices
-  - action_default_fallback
+  - utter_default_fallback
   - action_generate_fallback_response
+  - action_default_fallback
+  - action_human_handoff
 
 intents:
   - greet
@@ -93,6 +95,7 @@ intents:
   - faqluggage
   - faqcontact
   - faqservices
+  - action_default_fallback
 
 responses:
   utter_greet:
@@ -289,10 +292,12 @@ responses:
 
         If you have specific preferences or questions, please let us know!
 
-  utter_fallback:
-    - text: "I'm sorry, I didn't understand that. Can you please rephrase?"
-  utter_custom_fallback:
-    - text: "{gpt3_response}"
+  utter_out_of_scope:
+    - text: "Sorry, I can't handle that request."
+  utter_please_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+  utter_default:
+    - text: "Sorry, I didn't get that. Can you rephrase?"
 
 entities:
   - room_type

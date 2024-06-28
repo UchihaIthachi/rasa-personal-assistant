@@ -674,6 +674,9 @@ nlu:
       - What is your physical address?
       - Can you tell me your address?
       - Where are you located?
+      - I need to talk to a person
+      - Connect me to a human
+      - I want to speak with customer service
 
   - intent: faqluggage
     examples: |
@@ -777,3 +780,10 @@ nlu:
       - What is your policy on pets and fees?
       - Is there an extra charge for pets?
       - Pet accommodation costs?
+
+  - intent: out_of_scope
+    examples: |
+      - I want to order food
+      - What is 2 + 2?
+      - Who's the US President?
+      - How's the weather?
