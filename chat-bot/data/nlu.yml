@@ -1,4 +1,4 @@
-version: "3.1"
+version: "3.0"
 
 nlu:
   - intent: greet
@@ -6,222 +6,126 @@ nlu:
       - hey
       - hello
       - hi
-      - hello there
       - good morning
       - good evening
-      - moin
       - hey there
-      - let's go
-      - hey dude
-      - goodmorning
-      - goodevening
-      - good afternoon
-      - howdy
-      - greetings
-      - hi there
-      - hey!
-      - hiya
-      - what's up
-      - what's good
-      - hello everyone
-      - how's it going
-      - good day
-      - how are you
 
   - intent: goodbye
     examples: |
-      - cu
-      - good by
-      - cee you later
-      - good night
       - bye
       - goodbye
-      - have a nice day
       - see you around
-      - bye bye
       - see you later
-      - take care
-      - later
-      - see ya
-      - have a good one
-      - farewell
-      - talk to you later
-      - peace out
-      - so long
-      - until next time
-      - catch you later
 
   - intent: affirm
     examples: |
       - yes
-      - y
       - indeed
       - of course
       - that sounds good
       - correct
-      - absolutely
-      - sure
-      - definitely
-      - right
-      - yup
-      - exactly
-      - certainly
-      - you got it
-      - that's right
-      - I agree
-      - totally
-      - affirmative
       - yeah
-      - sure thing
       - yes sure
 
   - intent: deny
     examples: |
       - no
-      - n
       - never
       - I don't think so
       - don't like that
       - no way
       - not really
-      - nope
-      - absolutely not
-      - no thanks
-      - not at all
-      - nah
-      - negative
-      - I disagree
-      - not sure about that
-      - definitely not
-      - I don't think so
-      - that's not right
-      - not exactly
 
   - intent: mood_great
     examples: |
       - perfect
+      - very good
       - great
       - amazing
-      - feeling like a king
       - wonderful
       - I am feeling very good
       - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
-      - fantastic
-      - awesome
-      - excellent
-      - I'm on top of the world
-      - couldn't be better
-      - thrilled
-      - very happy
-      - delighted
-      - I'm in a great mood
-      - ecstatic
-      - over the moon
-      - I'm fine
+      - I'm good
 
   - intent: mood_unhappy
     examples: |
-      - my day was horrible
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
       - sad
       - very sad
       - unhappy
-      - not good
+      - bad
+      - very bad
+      - awful
+      - terrible
       - not very good
       - extremely sad
       - so sad
-      - I'm feeling down
-      - I'm feeling bad
-      - I'm upset
-      - having a bad day
-      - feeling miserable
-      - I'm not happy
-      - in a bad mood
-      - I'm feeling terrible
-      - down in the dumps
-      - gloomy
-      - I'm feeling blue
-      - not in a good mood
 
-  - intent: goodbye
+  - intent: bot_challenge
     examples: |
-      - bye
-      - goodbye
-      - see you later
-      - take care
-      - bye bye
-      - catch you later
-      - until next time
-      - peace out
-      - later
-      - farewell
-      - see ya
-      - have a good one
-      - talk to you later
-      - so long
-      - I'm out
-      - have a nice day
-      - see you around
-      - take it easy
-      - take care now
-      - see you soon
-      - be seeing you
-      - bye for now
-      - stay safe
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
 
-  - intent: what
+  - intent: open_days
     examples: |
-      - what
-      - what ?
-      - ?
-      - wt
+      - when is the restaurant open?
+      - On what days the restaurant is open?
+      - days the restaurant open
 
-  ############################################################
-
-  - intent: book_room
+  - intent: open_hours
     examples: |
-      - I need to book a room
-      - I want to reserve a room
-      - Can I book a room?
-      - Book a room for me
-      - Reserve a room for me
-      - I want to book a suite
-      - I need to book a room for three nights
-      - Help me book a room for next weekend
-      - I would like to book a room for tonight
-      - Please reserve a single room for me
-      - Book a family room for my stay
-      - Can I get a room for this Friday?
-      - I want to book a room for my vacation
-      - Reserve a room with a sea view
+      - At what time
+      - opened hours
+      - till what time are you open
+      - working hours
+      - At what time are you opened
+      - what are the working hours
 
-  - intent: check_availability
+  - intent: food_categories
     examples: |
-      - Do you have rooms available?
-      - Can you check if there are rooms available?
-      - Is there any availability for next weekend?
-      - Check room availability for tonight.
-      - Are there any rooms left for tomorrow?
-      - What dates do you have available?
-      - Tell me about room availability.
-      - Availability for a room next week?
-      - Can you see if there are open rooms?
-      - Is there availability for a room tomorrow?
-      - Do you have any vacant rooms for tonight?
-      - I want to know the availability of rooms for the weekend.
-      - What rooms are available for July 15th?
-      - Do you have any free rooms for tomorrow night?
+      - Food types in the restaurant
+      - what type of food do you have
+      - can you show me the food categories you have
+      - what categories of food do you have
+      - what categories do you serve at the restaurant
+
+  - intent: room_inquiry
+    examples: |
+      - Do you have rooms
+      - Is it possible to stay at the hotel
+      - Can we book rooms at your hotel
+
+  - intent: room_types
+    examples: |
+      - Show the room types in your hotel
+      - what type of rooms do you have
+      - what type of rooms do you have in the hotel
+      - what are the room types you have
+
+  - intent: room_availability
+    examples: |
+      - Are there any free rooms
+      - What about the availability of rooms
+      - Are there any unoccupied rooms
+      - Any free rooms
+
+  - intent: inform_category
+    examples: |
+      - what type of [Desserts](food_category) do you have
+      - what type of [Kottu](food_category) do you have
+      - what type of [Rice](food_category) do you have
+      - what [Beverages](food_category) types do you have
+      - what [Pizza](food_category) types do you have
+      - what [Pasta](food_category) types do you have
+      - Show a list of [Noodles](food_category)
+      - Show a list of [Burgers](food_category)
+      - Prices of [Kottu](food_category)
+      - Prices of [Beverages](food_category)
+      - Can you tell me the prices of [Desserts](food_category)
+      - Can you tell me the prices of [Pizza](food_category)
+      - what type of [kottu]{"entity": "food_category", "value": "Kottu"} do you have
+      - what type of [desserts]{"entity": "food_category", "value": "Desserts"} do you have
 
   - intent: room_packages
     examples: |
@@ -233,547 +137,157 @@ nlu:
       - show me the available room packages in the hotel
       - can i know about room packages
 
-  - intent: room_types
+  - intent: inform_room_type_package
     examples: |
-      - Show the room types in your hotel
-      - what type of rooms do you have
-      - what type of rooms do you have in the hotel
-      - what are the room types you have
+      - [Sea View-Double Bed Room](room_type) [Half-Board](package)
+      - [Sea View-Single Bed Room](room_type) [Full-Board](package)
+      - [Normal-Double Bed Room](room_type) [Breakfast-Only](package)
+      - [Normal-Single Bed Room](room_type) [Half-Board](package)
 
-  - intent: cancel_reservation
-    examples: |
-      - I need to cancel my reservation
-      - Cancel my booking
-      - I want to cancel my room
-      - Can you cancel my reservation?
-      - Cancel my room
-      - I'd like to cancel my booking
-      - Help me cancel my reservation
-      - Cancel my stay
-      - I need to cancel my hotel reservation
-      - Please cancel my booking for tonight
-      - I want to cancel my room for tomorrow
-      - Can I cancel my reservation for next week?
-      - How do I cancel my room booking?
-      - I need to cancel my room due to a change in plans
-      - Cancel my hotel booking for next month
-      - Can you assist me in canceling my reservation?
+  - synonym: Beverages
+    value: Beverages
+    synonyms: |
+      - Beverage
+      - beverages
+      - beverage
+      - drinks
+      - BEVERAGES
+      - BEVERAGE
 
-  - intent: bot_challenge
-    examples: |
-      - are you a bot?
-      - are you a human?
-      - am I talking to a bot?
-      - am I talking to a human?
-      - are you a real person?
-      - are you automated?
-      - is this a bot?
-      - are you a chatbot?
-      - am I speaking with a human or a bot?
-      - is this conversation with a bot?
-      - are you an AI?
-      - is there a human behind this?
-      - are you an artificial intelligence?
-      - are you a computer program?
-      - am I chatting with a machine?
-      - are you a digital assistant?
-      - are you a real person or a computer?
-      - am I interacting with AI?
-      - who are you?
+  - synonym: Burgers
+    value: Burgers
+    synonyms: |
+      - BURGERS
+      - BURGER
+      - burgers
+      - burger
+      - Burger
 
-  - intent: faqbreakfast
-    examples: |
-      - breakfast menu
-      - can I see your breakfast menu
-      - please show me the breakfast menu
-      - show me your breakfast menu
-      - Breakfast Menu
-      - what do you serve for breakfast?
-      - can you tell me the breakfast options?
-      - I want to know about breakfast
-      - is breakfast included in the room rate?
-      - what breakfast options do you offer?
-      - do you have a buffet for breakfast?
-      - what kind of breakfast do you serve?
-      - can you describe the breakfast choices?
-      - is breakfast complimentary?
-      - do you offer continental breakfast?
-      - can I have breakfast in my room?
+  - synonym: Desserts
+    value: Desserts
+    synonyms: |
+      - desserts
+      - dessert
+      - DESSERTS
+      - DESSERT
 
-  - intent: faqbreakfasttime
-    examples: |
-      - can you specify the time for the breakfast?
-      - at what time will you serve the breakfast?
-      - what is the time for the breakfast?
-      - when is breakfast served?
-      - breakfast hours?
-      - time for breakfast?
-      - breakfast service hours
-      - breakfast timing
-      - what are the breakfast hours?
-      - when does breakfast start and end?
-      - what time is breakfast available?
-      - can you tell me the breakfast times?
-      - what are your breakfast service times?
-      - what time does breakfast service begin?
-      - when do you serve breakfast?
+  - synonym: Kottu
+    value: Kottu
+    synonyms: |
+      - kottu
+      - KOTTU
+      - kottus
+      - KOTTUS
 
-  - intent: faqcancellationpolicy
-    examples: |
-      - what is the cancellation policy?
-      - cancel policy
-      - what should I do for cancelling the reservation?
-      - what is the cancellation process
-      - cancellation policy?
-      - how do I cancel my booking?
-      - can I cancel my reservation?
-      - tell me about the cancellation policy
-      - how can I cancel my hotel booking?
-      - what are the cancellation terms?
-      - is there a fee for cancelling my reservation?
-      - what is your cancellation policy for rooms?
-      - can I cancel my booking without a charge?
-      - what are the rules for cancelling a reservation?
-      - how much notice do I need to give to cancel?
-      - what happens if I cancel my reservation?
-      - can I get a refund if I cancel?
-      - is there a deadline for cancellations?
+  - synonym: Noodles
+    value: Noodles
+    synonyms: |
+      - noodles
+      - NOODLES
+      - noodle
+      - Noodle
 
-  - intent: faqcheckin
-    examples: |
-      - What is the check-in time of a hotel?
-      - What are the standard check-in times?
-      - At what time can I check-in?
-      - what is the checkin time?
-      - what is the check-in time?
-      - Check-in time?
-      - when can I check in?
-      - check-in details please
-      - what time does check-in start?
-      - when can I arrive for check-in?
-      - what are the check-in hours?
-      - what time is check-in available?
-      - when is check-in allowed?
+  - synonym: Normal-Double Bed Room
+    value: Normal-Double Bed Room
+    synonyms: |
+      - normal double
+      - normal-double
+      - Normal Double Bed
+      - Normal-Double Bed
+      - Normal-Double
+      - Normal Double
+      - Double Bed Normal
+      - double bed-normal
 
-  - intent: faqearlycheckin
-    examples: |
-      - is it possible for early check in
-      - will you allow for the early check in?
-      - early check in
-      - can I check in early?
-      - is early check-in available?
-      - do you allow early check-ins?
-      - can I come early to check in?
-      - early check-in options
-      - what is the earliest I can check in?
-      - can I arrive before check-in time?
-      - can I get an early check-in?
-      - is there an extra fee for early check-in?
-      - can I check in before the standard time?
-      - can I come before the official check-in time?
-      - is there any way to check in early?
+  - synonym: Normal-Single Bed Room
+    value: Normal-Single Bed Room
+    synonyms: |
+      - normal single
+      - Normal-Single Bed
+      - Normal Single Bed
+      - Normal-Single
+      - Normal Single
+      - normal-single
+      - Single Bed Normal
+      - single bed-normal
 
-  - intent: faqlatecheckin
-    examples: |
-      - is it possible for late check in?
-      - late check-in
-      - will you allow for the late check in?
-      - can I check in late?
-      - do you allow late check-ins?
-      - is late check-in available?
-      - checking in late
-      - options for late check-in
-      - what is the latest I can check in?
-      - can I arrive after check-in time?
-      - can I get a late check-in?
-      - is there an extra fee for late check-in?
-      - can I check in after the standard time?
-      - can I come after the official check-in time?
-      - is there any way to check in late?
+  - synonym: Pasta
+    value: Pasta
+    synonyms: |
+      - Pastas
+      - pastas
+      - pasta
+      - PASTA
+      - PASTAS
 
-  - intent: faqcheckinage
-    examples: |
-      - what is the minimum age required to check in?
-      - check in age
-      - age for check in
-      - at what age do you allow me to check in
-      - minimum age required to check in?
-      - how old do I have to be to check in?
-      - age limit for check-in
-      - check-in age requirement
-      - what is the age limit for checking in?
-      - how old must I be to check in?
-      - what is the age policy for check-in?
-      - do you have an age restriction for check-in?
-      - at what age can I book a room?
-      - is there a minimum age for room booking?
-      - can a 16-year-old check in?
-      - is there an age requirement for reservations?
+  - synonym: Pizza
+    value: Pizza
+    synonyms: |
+      - PIZZA
+      - PIZZAS
+      - pizza
+      - Pizzas
+      - pizzas
 
-  - intent: faqcheckout
-    examples: |
-      - what is the check-out time?
-      - what is the checkout time?
-      - What is the check-out time of a hotel?
-      - checkout time?
-      - when do I need to check out?
-      - by what time should I check out?
-      - check-out details please
-      - check-out time?
-      - what time is check-out?
-      - what are the check-out hours?
-      - when should I check out by?
-      - what is your standard check-out time?
-      - can I check out early?
-      - when do I have to leave the room?
+  - synonym: Rice
+    value: Rice
+    synonyms: |
+      - rice
+      - RICE
 
-  - intent: faqlatecheckout
-    examples: |
-      - Can I request a late check out?
-      - is it possible for late check out
-      - will you allow for the late check out?
-      - late check out
-      - can I check out late?
-      - do you allow late check-outs?
-      - is late check-out available?
-      - checking out late
-      - what is the latest I can check out?
-      - can I extend my check-out time?
-      - can I get a late check-out?
-      - is there an extra fee for late check-out?
-      - can I check out after the standard time?
-      - can I leave after the official check-out time?
-      - is there any way to check out late?
+  - synonym: Sea View-Double Bed Room
+    value: Sea View-Double Bed Room
+    synonyms: |
+      - sea view double
+      - Sea View Double Bed
+      - Sea View Double
+      - Sea View-Double
+      - sea view-double
+      - Sea View-Double Bed
+      - Double Bed Sea View
+      - double bed-sea view
 
-  - intent: faqchildrenage
-    examples: |
-      - what is the maximum age for the children to stay for free?
-      - is it possible for my children to stay for free?
-      - can children stay for free
-      - Do children stay for free?
-      - what's the age limit for kids to stay free?
-      - children stay free policy
-      - age for free child stay
-      - can my kids stay for free?
-      - what age do children stay for free?
-      - do you have a free stay policy for kids?
-      - how old can children be to stay for free?
-      - is there an age limit for free child accommodation?
-      - do you allow kids to stay for free?
-      - what is the free stay age for children?
-      - can my children stay for free with me?
-      - are there any charges for children's stay?
-      - up to what age do kids stay for free?
-      - do you offer free accommodation for children?
+  - synonym: Sea View-Single Bed Room
+    value: Sea View-Single Bed Room
+    synonyms: |
+      - sea view single
+      - Sea View Single
+      - Sea View-Single Bed
+      - Sea View Single Bed
+      - Sea View-Single
+      - sea view-single
+      - Single Bed Sea View
+      - single bed-sea view
 
-  ##################################################
+  - synonym: price_b
+    value: Breakfast-Only
+    synonyms: |
+      - Breakfast-Only
+      - breakfast-only
+      - Breakfast-only
+      - Breakfast Only
+      - Breakfast only
+      - breakfast only
+      - Breakfastonly
 
-  - intent: faqroomcount
-    examples: |
-      - is there a limit for the number of rooms a person can book
-      - number of rooms a person can reserve
-      - no. of rooms a person can book
-      - how many rooms can I book?
-      - maximum rooms per booking
-      - room booking limit
-      - booking multiple rooms
-      - room reservation limit
-      - can I book several rooms at once?
-      - what is the maximum number of rooms I can book?
-      - how many rooms can be reserved in one booking?
-      - can I reserve more than one room?
-      - is there a cap on room bookings?
-      - can I book multiple rooms for a group?
-      - what is the limit on the number of rooms per booking?
+  - synonym: price_f
+    value: Full-Board
+    synonyms: |
+      - Full-Board
+      - Full Board
+      - full board
+      - fullboard
+      - Full-board
+      - Fullboard
+      - full-board
 
-  - intent: faqbabycot
-    examples: |
-      - what about baby cots
-      - Do you provide a baby cot?
-      - will you arrange a baby cot for my baby?
-      - is there a baby cot in the room
-      - baby cots provided?
-      - baby cots
-      - Are baby cots available at all of your hotels?
-      - Are baby cots available for the rooms?
-      - do you offer baby cots?
-      - can I get a baby cot?
-      - is a baby cot available upon request?
-      - can I have a baby cot in my room?
-      - do you charge for baby cots?
-      - are there baby cots for infants?
-      - can I request a baby cot for my stay?
-
-  - intent: faqrefundable
-    examples: |
-      - is it possible to get a refund for my room?
-      - what is the refund policy
-      - is refund available
-      - Is my room refundable?
-      - can I get a refund?
-      - refund policy details
-      - do you offer refunds?
-      - refund options for room
-      - how do I get a refund for my booking?
-      - are there any refunds available?
-      - can I request a refund for my stay?
-      - what is your policy on refunds?
-      - is it possible to refund my reservation?
-      - can I cancel and get a refund?
-      - is there a refund process?
-
-  - intent: faqreceptiontime
-    examples: |
-      - is reception open now?
-      - is reception open all the time
-      - what is the timing of reception?
-      - Is Reception open 24 hours?
-      - reception time
-      - Reception Time
-      - reception hours
-      - is the reception desk open 24/7?
-      - when is the reception open?
-      - what are the reception desk hours?
-      - is the front desk open all night?
-      - can I reach reception anytime?
-      - when is the front desk available?
-      - is reception service available round the clock?
-      - are there specific hours for the reception?
-
-  - intent: faqparking
-    examples: |
-      - How do I know if the hotel has parking facilities?
-      - car parking available?
-      - do you provide car parking?
-      - is there a parking space
-      - Does Hotel provide parking?
-      - is car parking available?
-      - can I park my car in the hotel car parking
-      - is there a space for parking my car?
-      - car parking
-      - Are there car parking spaces or a car park?
-      - is parking available?
-      - do you have parking facilities?
-      - can I park my vehicle at the hotel?
-      - is there a parking lot?
-      - do you have a parking area?
-      - is there secure parking?
-      - is parking free or paid?
-      - where can I park my car at the hotel?
-      - are there parking spots at the hotel?
-      - can I leave my car in your parking area?
-
-  ###############################################
-  - intent: faqparkingcost
-    examples: |
-      - what is the car parking cost?
-      - parking cost
-      - Parking Cost
-      - How much does parking cost?
-      - cost of parking
-      - parking fee
-      - parking charges
-      - price for parking
-      - what do you charge for parking?
-      - is parking free?
-      - how much do I need to pay for parking?
-      - are there any parking fees?
-      - what are the parking rates?
-      - tell me the cost for parking
-      - how much is the parking fee per day?
-
-  - intent: faqpartialcancel
-    examples: |
-      - Can I cancel only certain parts of my reservation (for example one of the two booked rooms)?
-      - is it possible for partially cancelling the rooms
-      - Can I partially cancel my hotel booking?
-      - partial cancellation options
-      - how to partially cancel a reservation?
-      - can I cancel part of my booking?
-      - partial room cancellation
-      - cancel one of the booked rooms
-      - can I cancel one room but keep the other?
-      - is partial booking cancellation allowed?
-      - what is the process for partial cancellation?
-      - how do I cancel part of my reservation?
-      - can I modify my booking to cancel one room?
-      - is it possible to keep one booking and cancel the rest?
-
-  - intent: faq
-    examples: |
-      - FAQ
-      - faq
-      - Faq
-      - frequently asked questions
-      - tell me the FAQs
-      - common questions
-      - FAQ section
-      - where are the FAQs?
-      - can I see the FAQs?
-      - what are the common questions people ask?
-      - show me the FAQ list
-      - list of frequently asked questions
-      - where can I find the FAQ?
-      - where is the FAQ section?
-      - give me the FAQ
-
-  - intent: faqpetpolicy
-    examples: |
-      - Can I bring my pet?
-      - is it possible to bring my pets with me
-      - can I bring my pets with me?
-      - is there a charge for bringing my pets
-      - Are pets allowed to stay at the hotel?
-      - pet policy
-      - pet policy details
-      - do you allow pets?
-      - can I bring my dog?
-      - are cats allowed?
-      - what is your pet policy?
-      - are there extra charges for pets?
-      - do you have rooms that allow pets?
-      - is there a pet fee?
-      - can I have a pet in my room?
-
-  - intent: faqreservaconfirm
-    examples: |
-      - How can I confirm that my reservation has been made?
-      - can I know is my reservation confirmed?
-      - how can I confirm that the reservation is complete?
-      - how to know that the reservation is confirmed?
-      - is my booking confirmed?
-      - can you confirm my reservation?
-      - how do I check my reservation status?
-      - is there a way to confirm my booking?
-      - can I get a confirmation for my reservation?
-      - how do I know if my reservation is confirmed?
-      - what is the process to confirm a booking?
-      - is there a confirmation number for my reservation?
-      - can you provide me with a booking confirmation?
-
-  - intent: faqcontact
-    examples: |
-      - What is the contact number of your hotel?
-      - Can I get the phone number of your customer service?
-      - How do I contact you?
-      - what is your phone number?
-      - can I have the hotel's contact number?
-      - is there a number to reach the front desk?
-      - contact details of the hotel
-      - phone number to call the hotel
-      - customer service contact number
-      - how can I reach you by phone?
-      - what number can I call for information?
-      - is there a direct line to the hotel?
-      - What are your contact details?
-      - Can you provide your contact information?
-      - How can I contact you?
-      - What is your email address?
-      - Can you provide your email?
-      - How do I email you?
-      - What is your physical address?
-      - Can you tell me your address?
-      - Where are you located?
-
-  - intent: faqluggage
-    examples: |
-      - What is your luggage policy?
-      - Can I bring extra bags?
-      - Is there a limit on baggage?
-      - what is the luggage limit?
-      - can I bring additional luggage?
-      - how much luggage can I bring?
-      - what is the baggage policy?
-      - are there restrictions on luggage?
-      - can I store my luggage at the hotel?
-      - do you offer luggage storage?
-      - is there a fee for extra bags?
-      - what are the luggage regulations?
-      - how many bags can I bring with me?
-
-  - intent: faqmeetingroom
-    examples: |
-      - Do you have meeting rooms available?
-      - Can I book a conference room?
-      - How can I reserve a meeting space?
-      - are there any meeting rooms for rent?
-      - can I schedule a conference room?
-      - is there a meeting space available?
-      - how to book a meeting room?
-      - do you have facilities for meetings?
-      - are the meeting rooms equipped?
-      - can I arrange a meeting at your hotel?
-      - how can I reserve a conference space?
-      - are there any charges for meeting rooms?
-
-  - intent: faqmodifyreservation
-    examples: |
-      - How can I change my booking?
-      - Can I modify my reservation?
-      - What is your policy on changing reservations?
-      - how do I update my reservation?
-      - can I alter my booking details?
-      - what is the process for modifying a reservation?
-      - is it possible to change my reservation dates?
-      - can I add another room to my booking?
-      - how do I amend my reservation?
-      - what are the steps to modify my booking?
-      - can I make changes to my existing reservation?
-      - is there a fee to modify my booking?
-
-  - intent: faqnearestairport
-    examples: |
-      - How far is the nearest airport?
-      - Which airport is closest to your location?
-      - What are the transportation options to the airport?
-      - how do I get to the nearest airport?
-      - is there an airport close by?
-      - what is the distance to the nearest airport?
-      - nearest airport to the hotel
-      - how far is the hotel from the airport?
-      - closest airport to the hotel
-      - are there shuttle services to the airport?
-      - what is the travel time to the nearest airport?
-      - which airport should I use for your hotel?
-
-  - intent: faqsecurity
-    examples: |
-      - How secure are your facilities?
-      - What security measures do you have in place?
-      - Is there a security deposit required?
-      - what is your security policy?
-      - how do you ensure guest safety?
-      - are there security cameras in the hotel?
-      - do you have security personnel?
-      - what safety measures are in place?
-      - is the hotel secure?
-      - is there a deposit for security reasons?
-      - how do you handle security at the hotel?
-      - are there security checks at the entrance?
-
-  - intent: faqservices
-    examples: |
-      - What services do you offer?
-      - Can you tell me about your services?
-      - What are the amenities available?
-      - List of services provided
-      - What facilities are there?
-      - Tell me more about your offerings
-      - Service details
-      - What can I expect in terms of amenities?
-      - What amenities are included?
-      - What services are available at your hotel?
-      - What does your hotel offer in terms of facilities?
-
-  - intent: faqpetcost
-    examples: |
-      - How much does it cost to bring a pet?
-      - What are the charges for pets?
-      - Do you charge for pets?
-      - Cost of bringing my pet?
-      - Pet fee details?
-      - How much is the pet deposit?
-      - Are there any fees for bringing pets?
-      - What is your policy on pets and fees?
-      - Is there an extra charge for pets?
-      - Pet accommodation costs?
+  - synonym: price_h
+    value: Half-Board
+    synonyms: |
+      - Half-Board
+      - Half Board
+      - half board
+      - halfboard
+      - Half-board
+      - Halfboard
+      - half-board

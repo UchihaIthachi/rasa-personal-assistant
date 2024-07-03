@@ -1,324 +1,96 @@
-version: "3.1"
+version: "3.0"
 
 stories:
-  - story: Respond to bot challenge
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+
+  - story: say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: bot challenge
     steps:
       - intent: bot_challenge
       - action: utter_iamabot
 
-  - story: User books a room
+  - story: open time
     steps:
-      - intent: book_room
-      - action: utter_book_room
+      - intent: open_days
+      - action: utter_opendays
+      - intent: open_hours
+      - action: utter_openhours
+
+  - story: food categories request
+    steps:
+      - intent: food_categories
+      - action: action_show_food_categories
+
+  - story: room types inquiry
+    steps:
+      - intent: room_inquiry
+      - action: utter_yes_rooms
+      - intent: room_types
+      - action: action_show_room_types
+
+  - story: room availability inquiry
+    steps:
+      - intent: room_availability
+      - action: action_tell_room_availability
+
+  - story: food item inquiry
+    steps:
+      - intent: inform_category
+        entities:
+          - food_category: Kottu
+      - slot_was_set:
+          - food_category: Kottu
+      - action: action_search_food_items
+
+  - story: room packages inquiry path 1
+    steps:
+      - intent: room_packages
+      - action: utter_room_packages
+      - action: utter_help_request
       - intent: affirm
-  #      - action: action_book_room_confirmation
+      - action: utter_inform_format
+      - intent: inform_room_type_package
+        entities:
+          - room_type: Sea View-Single Bed Room
+          - package: Full-Board
+      - slot_was_set:
+          - room_type: Sea View-Single Bed Room
+          - package: Full-Board
+      - action: action_find_package_price
 
-  - story: User denies booking a room
+  - story: room packages inquiry path 2
     steps:
-      - intent: book_room
-      - action: utter_book_room
+      - intent: room_packages
+      - action: utter_room_packages
+      - action: utter_help_request
       - intent: deny
-  #      - action: action_listen
-
-  - story: User is unhappy with the room service
-    steps:
-      - intent: book_room
-      - action: utter_book_room
-      - intent: mood_unhappy
-      - action: utter_cheer_up
-
-  - story: User expresses great mood after successful booking
-    steps:
-      - intent: book_room
-      - action: utter_book_room
-      - intent: mood_great
       - action: utter_happy
-
-  - story: faqbreakfastmenu
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqbreakfast
-      - action: utter_faqbreakfast
-
-  - story: cancellationplicyfaq
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqcancellationpolicy
-      - action: utter_faqcancellationpolicy
-
-  - story: faqcheckin
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqcheckin
-      - action: utter_faqcheckin
-
-  - story: faqcheckouttime
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqcheckout
-      - action: utter_checkout
-
-  - story: faqchildrenage
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqchildrenage
-      - action: utter_faqchildrenage
-
-  - story: faqearlycheckin
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqearlycheckin
-      - action: utter_faqearlycheckin
-
-  - story: faqlatecheckin
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqlatecheckin
-      - action: utter_latecheckin
-
-  - story: faqlatecheckout
-    steps:
-      - intent: faqlatecheckout
-      - action: utter_faqlatecheckout
-
-  - story: faqroomcountdetails
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqroomcount
-      - action: utter_faqroomcount
-
-  - story: babycotfaq
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqbabycot
-      - action: utter_faqbabycot
-
-  - story: breakfasttime
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqbreakfasttime
-      - action: utter_faqbreakfasttime
-
-  - story: refundpolicy
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqrefundable
-      - action: utter_faqrefundable
-
-  - story: receptiontime
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqreceptiontime
-      - action: utter_receptiontime
-
-  - story: carparking
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqparking
-      - action: utter_faqcarparking
-
-  - story: parkingcost
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqparkingcost
-      - action: utter_faqparkingcost
-
-  - story: faqpartialcancel
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqpartialcancel
-      - action: utter_faqpartialcancel
-
-  - story: petpolicyfaq
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqpetpolicy
-      - action: utter_faqpetpolicy
-
-  - story: reservationconfirm
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqreservaconfirm
-      - action: utter_reservationconfirm
-
-  - story: nearestairportfaq
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqnearestairport
-      - action: utter_faqnearestairport
-
-  - story: modifyreservation
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqmodifyreservation
-      - action: utter_faqmodifyreservation
-
-  - story: meetingroom
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqmeetingroom
-      - action: utter_faqmeetingroom
-
-  - story: security
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqsecurity
-      - action: utter_faqsecurity
-
-  - story: luggahes
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqluggage
-      - action: utter_faqluggage
-
-  - story: contactnumber
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: faq
-      - action: utter_faq_prompt
-      - intent: faqcontact
-      - action: utter_faqcontact
-
-  - story: FAQ about checkout time
-    steps:
-      - intent: faqcheckout
-      - action: utter_faqcheckout
-
-  - story: User asks to check room availability
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: check_availability
-      - action: utter_check_availability
-
-  - story: User denies booking and requests cancellation
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: deny
-      - action: utter_did_that_help
-      - intent: cancel_reservation
-      - action: utter_cancel_reservation
-
-  - story: User expresses great mood after successful booking
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: book_room
-      - action: utter_book_room
-      - intent: mood_great
-      - action: utter_happy
-
-  - story: User is unhappy with the room service
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: book_room
-      - action: utter_book_room
-      - intent: mood_unhappy
-      - action: utter_did_that_help
-
-  - story: Respond to pet policy and fees
-    steps:
-      - intent: faqpetpolicy
-      - action: utter_faqpetpolicy
-      - intent: what
-      - action: utter_faqpetcost
-
-  - story: Respond to pet policy cost
-    steps:
-      - intent: faqpetpolicy
-      - action: utter_faqpetpolicy
-      - intent: faqpetcost
-      - action: utter_faqpetcost
-
-  - story: Provide contact details after parking inquiry
-    steps:
-      - intent: faqparking
-      - action: utter_faqparking
-      - intent: affirm
-      - action: utter_faqcontact
-
-  - story: Provide contact details directly
-    steps:
-      - intent: faqparking
-      - action: utter_faqparking
-      - intent: faqcontact
-      - action: utter_faqcontact
-
-  - story: Respond to "What services are available"
-    steps:
-      - intent: faqservices
-      - action: utter_faqservices
-
-  - story: handle out of scope
-    steps:
-      - intent: out_of_scope
-      - action: action_default_fallback

@@ -1,0 +1,108 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - open_days
+  - open_hours
+  - food_categories
+  - room_inquiry
+  - room_types
+  - room_availability
+  - inform_category
+  - room_packages
+  - inform_room_type_package
+
+entities:
+  - food_category
+  - package
+  - room_type
+
+slots:
+  food_category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: food_category
+  package:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: package
+  room_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: room_type
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_yes_rooms:
+    - text: "Yes, it is possible"
+    - text: "Yes, you can"
+    - text: "Yes, we have rooms"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_openhours:
+    - text: "We are opened in the afternoons from 12:00 p.m to 3:00 p.m and in the evenings from 7:30 p.m to 10:30 p.m"
+
+  utter_opendays:
+    - text: "Our Restaurant is open for you everyday"
+
+  utter_categories:
+    - text: "At our restaurant, we offer food which belong to these categories....\n\n{categories}"
+
+  utter_room_types:
+    - text: "We have following types of rooms at Hotel Pearl...{room_types}"
+
+  utter_room_unavailability:
+    - text: "Sorry...All rooms are currently booked...Please go to bookings page and check availability...you might get a chance based on your check-in date"
+
+  utter_room_availability:
+    - text: "Few rooms are available...Please go to bookings page and see whether it suits your desire"
+
+  utter_food_items:
+    - text: "The {category} types we have in our restaurant are....{food_items}"
+
+  utter_room_packages:
+    - text: "Full-Board, Half-Board, Breakfast-Only are the room packages"
+
+  utter_help_request:
+    - text: "Do you want to know about the prices?"
+
+  utter_inform_format:
+    - text: "Please tell us the room type and the package as in the following examples...\n\nSea View-Double Full-Board\n\nNormal-Single Breakfast-Only"
+
+  utter_package_price:
+    - text: "The price of the requested package & room type is {price}"
+
+actions:
+  - action_show_food_categories
+  - action_show_room_types
+  - action_tell_room_availability
+  - action_search_food_items
+  - action_find_package_price
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -5,7 +5,7 @@ REACT_APP_DIR := chatbot-react-vite-web-app
 
 # Train the full Rasa model
 train: ## Train the full Rasa model
-	rasa train --domain $(CHATBOT_DIR)/config/domain.yml --data $(CHATBOT_DIR)/data --config $(CHATBOT_DIR)/config/config.yml --out $(CHATBOT_DIR)/models
+	rasa train --domain $(CHATBOT_DIR)/domain.yml --data $(CHATBOT_DIR)/data --config $(CHATBOT_DIR)/config/config.yml --out $(CHATBOT_DIR)/models
 
 # Train only the NLU model
 train-nlu: ## Train only the NLU model
@@ -18,7 +18,7 @@ run-actions: ## Run the action server
 # Run an interactive Rasa shell
 shell: ## Run an interactive Rasa shell
 	$(MAKE) run-actions &
-	rasa shell -m $(CHATBOT_DIR)/models --endpoints $(CHATBOT_DIR)/config/endpoints.yml
+	rasa shell -m $(CHATBOT_DIR)/models --endpoints $(CHATBOT_DIR)/endpoints.yml
 
 # Build and serve the React app
 build-react: ## Build the React app
@@ -37,7 +37,7 @@ run: ## Run the Rasa server with React web app
 
 # Validate the Rasa files
 validate: ## Validate the Rasa files
-	rasa data validate --domain $(CHATBOT_DIR)/config/domain.yml --data $(CHATBOT_DIR)/data --config $(CHATBOT_DIR)/config/config.yml
+	rasa data validate --domain $(CHATBOT_DIR)/domain.yml --data $(CHATBOT_DIR)/data --config $(CHATBOT_DIR)/config/config.yml
 
 # Help display
 help:  ## Display this help
