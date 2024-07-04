@@ -145,8 +145,7 @@ nlu:
       - [Normal-Single Bed Room](room_type) [Half-Board](package)
 
   - synonym: Beverages
-    value: Beverages
-    synonyms: |
+    examples: |
       - Beverage
       - beverages
       - beverage
@@ -155,8 +154,7 @@ nlu:
       - BEVERAGE
 
   - synonym: Burgers
-    value: Burgers
-    synonyms: |
+    examples: |
       - BURGERS
       - BURGER
       - burgers
@@ -164,32 +162,28 @@ nlu:
       - Burger
 
   - synonym: Desserts
-    value: Desserts
-    synonyms: |
+    examples: |
       - desserts
       - dessert
       - DESSERTS
       - DESSERT
 
   - synonym: Kottu
-    value: Kottu
-    synonyms: |
+    examples: |
       - kottu
       - KOTTU
       - kottus
       - KOTTUS
 
   - synonym: Noodles
-    value: Noodles
-    synonyms: |
+    examples: |
       - noodles
       - NOODLES
       - noodle
       - Noodle
 
   - synonym: Normal-Double Bed Room
-    value: Normal-Double Bed Room
-    synonyms: |
+    examples: |
       - normal double
       - normal-double
       - Normal Double Bed
@@ -200,8 +194,7 @@ nlu:
       - double bed-normal
 
   - synonym: Normal-Single Bed Room
-    value: Normal-Single Bed Room
-    synonyms: |
+    examples: |
       - normal single
       - Normal-Single Bed
       - Normal Single Bed
@@ -212,8 +205,7 @@ nlu:
       - single bed-normal
 
   - synonym: Pasta
-    value: Pasta
-    synonyms: |
+    examples: |
       - Pastas
       - pastas
       - pasta
@@ -221,8 +213,7 @@ nlu:
       - PASTAS
 
   - synonym: Pizza
-    value: Pizza
-    synonyms: |
+    examples: |
       - PIZZA
       - PIZZAS
       - pizza
@@ -230,14 +221,12 @@ nlu:
       - pizzas
 
   - synonym: Rice
-    value: Rice
-    synonyms: |
+    examples: |
       - rice
       - RICE
 
   - synonym: Sea View-Double Bed Room
-    value: Sea View-Double Bed Room
-    synonyms: |
+    examples: |
       - sea view double
       - Sea View Double Bed
       - Sea View Double
@@ -248,8 +237,7 @@ nlu:
       - double bed-sea view
 
   - synonym: Sea View-Single Bed Room
-    value: Sea View-Single Bed Room
-    synonyms: |
+    examples: |
       - sea view single
       - Sea View Single
       - Sea View-Single Bed
@@ -260,8 +248,7 @@ nlu:
       - single bed-sea view
 
   - synonym: price_b
-    value: Breakfast-Only
-    synonyms: |
+    examples: |
       - Breakfast-Only
       - breakfast-only
       - Breakfast-only
@@ -271,8 +258,7 @@ nlu:
       - Breakfastonly
 
   - synonym: price_f
-    value: Full-Board
-    synonyms: |
+    examples: |
       - Full-Board
       - Full Board
       - full board
@@ -282,8 +268,7 @@ nlu:
       - full-board
 
   - synonym: price_h
-    value: Half-Board
-    synonyms: |
+    examples: |
       - Half-Board
       - Half Board
       - half board

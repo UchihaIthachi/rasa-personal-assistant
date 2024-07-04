@@ -107,23 +107,28 @@ Open Rasa X in your web browser at `http://localhost:5002`. Rasa X provides an i
 
 ```plaintext
 hotel-assistant-bot/
-├── .rasa/
-├── configs/
-│   ├── domain.yml
-│   ├── config.yml
-│   └── endpoints.yml
-├── data/
-│   ├── nlu.yml
-│   ├── rules.yml
-│   └── stories.yml
-├── models/
-├── actions/
-│   └── actions.py
-├── chatbot-react-vite-web-app/
-├── chatbot-html-js-css-web-app/
-├── requirements.txt
-├── Makefile
-└── README.md
+├── chat-bot/                   # Rasa chatbot directory
+│   ├── .rasa/                  # Rasa configuration and models directory
+│   ├── configs/                # Rasa configuration files
+│   ├── data/                   # Training data for Rasa
+│   ├── models/                 # Trained models output directory
+│   ├── domain.yml              # Rasa domain configuration
+│   ├── endpoints.yml           # Rasa endpoints configuration
+│   ├── actions/                # Custom actions directory for Rasa
+│   │   └── actions.py          # Example of a custom action script
+├── chatbot-react-vite-web-app/ # React web app directory (assuming it's a Vite project)
+├── chatbot-html-js-css-web-app/# HTML/CSS/JS web app directory
+├── rest-api/                   # Firebase Functions-based REST API directory
+│   ├── functions/              # Firebase Functions directory
+│   │   ├── node_modules/       # Node modules directory
+variables file for Firebase Functions
+│   │   ├── index.js            # Main entry point for Firebase Functions
+│   │   ├── package.json        # Dependencies and scripts for Firebase Functions
+│   │   ├── ServiceAccountKey.json # Firebase service account key
+│   ├── firebase.json           # Firebase configuration file
+├── Makefile                    # Makefile for project automation (optional)
+├── .env                        # Root environment variables file (shared across project)
+└── README.md                   # Project documentation
 ```
 
 ## Makefile Commands

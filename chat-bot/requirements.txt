@@ -1,0 +1,4 @@
+rasa
+rasa_sdk
+openai
+spellchecker
